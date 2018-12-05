@@ -1,0 +1,43 @@
+logging concert-this on 12/04/2018 
+Name of venue: Accorhotels Arena
+location: Paris, France
+date: 03/08/2019
+------------------------
+logging spotify-this-song on 12/04/2018 
+artist: Bazzi
+song: Mine
+preview_url: https://p.scdn.co/mp3-preview/139aec4c3e350d889e4f1108eb14654c3d70c376?cid=acf7d036236b416cb26f69ec691da301
+album_name: COSMIC
+------------------------
+logging movie-this on 12/04/2018 
+Title: Star Wars: Episode IV - A New Hope
+Year: 1977
+imdbRating: 8.6
+Country: USA
+Language: English
+Plot: Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the evil Darth Vader.
+Actors: Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing
+Rotten Tomatoes: 93%
+------------------------
+logging spotify-this-song on 12/04/2018 
+artist: Backstreet Boys
+song: I Want It That Way
+preview_url: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=acf7d036236b416cb26f69ec691da301
+album_name: The Hits--Chapter One
+------------------------
+logging spotify-this-song on 12/04/2018 
+artist: Harry Styles
+song: Sign of the Times
+preview_url: https://p.scdn.co/mp3-preview/af237206f611b722f48620ece049aff3b8650e77?cid=acf7d036236b416cb26f69ec691da301
+album_name: Harry Styles
+------------------------
+logging movie-this on 12/04/2018 
+Title: Mr. Nobody
+Year: 2009
+imdbRating: 7.9
+Country: Belgium, Germany, Canada, France, USA, UK
+Language: English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+Rotten Tomatoes: 67%
+------------------------
