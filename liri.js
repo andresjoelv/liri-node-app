@@ -5,7 +5,6 @@ Action requests include retrieving venues from Bands In Town API,
 song information from Spotify API, and movie information from OMDB.
 LIRI also calls out to a random text file that can include any action or argument.
 LIRI includes logging support both to the console and an output file, log.txt.
-It uses the npm node module, 'simple-node-logger', for it's logging solution.
 */ 
 
 // Required NPM modules and files.
@@ -13,14 +12,28 @@ It uses the npm node module, 'simple-node-logger', for it's logging solution.
 
 
 require("dotenv").config();
+
+// Used to access Twitter keys in local file, keys.js.
 const keys = require('./keys');
+
+// NPM module used to read the random.txt file.
 const fs = require('fs');
+
+// NPM module used to access OMDB API.
 const axios = require('axios');
+
+// NPM module used to formar time.
 const moment = require('moment');
+
+// NPM module used to access Spotify API.
 var Spotify = require('node-spotify-api');
 
-// LINKS
-// https://github.com/Meggin/liri-node-app/blob/master/liri.js
+// Output file for logs.
+var filename = './log.txt';
+
+// Controller and required parameters.
+// ____________________________________________________________________________________
+
 var spotify = new Spotify(keys.spotify);
 
 var command = process.argv[2];
@@ -31,7 +44,9 @@ const bitID = 'dbef0442baec91a6d042e1d59fa5596a';
 var divider =
             "\n------------------------\n";
 
+// Class that contains necessary methods to perfom each command line request
 class Search {
+    // Uses BandsInTown API
     fetchArtist(artist){
         var bitURL = `https://rest.bandsintown.com/artists/${artist}/events?app_id=${bitID}`;
 
@@ -63,6 +78,7 @@ class Search {
         });
         
     };
+    // Uses Spotify API
     spotifySong(song){
         var preview = "";
         if(song){
@@ -86,6 +102,7 @@ class Search {
                 search.logCommand(result);
             });
         }
+        // Provide default song if no song was entered
         else {
             spotify.search({ type: 'track', query: 'The Sign', limit: 1 }, function(err, data) {
                 if (err) return console.log('Error occurred: ' + err);
@@ -111,6 +128,7 @@ class Search {
 
         
     }
+    // Uses OMDB API
     fetchMovie(movie){
         if(movie){
             var omdbURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
@@ -154,6 +172,7 @@ class Search {
                     console.log(error);
             });
         }
+        // Provide default movie if no song was entered
         else{
             movie = 'Mr. Nobody';
             var omdbURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
@@ -217,6 +236,7 @@ class Search {
             }
         });
     }
+    // Logs data to the terminal and output to a text file.
     logCommand(result){
         var today = new Date();
         var dd = today.getDate();
@@ -235,7 +255,7 @@ class Search {
         var message = `logging ${command} on ${today} \n`;
 
         var log = message + result;
-        fs.appendFile('log.txt', log + divider, function(err){
+        fs.appendFile(filename, log + divider, function(err){
             if(err){
     
             }
@@ -249,7 +269,7 @@ class Search {
 const search = new Search();
 fetchCommand();
 
-
+// Function used to determin which action to take.
 function fetchCommand(){
     if(command != undefined){
         switch (command)
